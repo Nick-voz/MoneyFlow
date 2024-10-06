@@ -12,7 +12,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if chat_id is None:
         return
     await context.bot.send_message(
-        chat_id=chat_id, text="Hellow I'm MoneFlow bot"
+        chat_id=chat_id, text="Hellow I'm MoneyFlow bot"
     )
 
 
