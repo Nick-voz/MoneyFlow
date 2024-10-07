@@ -1,30 +1,22 @@
 from os import getenv
 
+import handlers.command_handlers as command_handlers
 from dotenv import load_dotenv
-from telegram import Update
 from telegram.ext import ApplicationBuilder
-from telegram.ext import CommandHandler
-from telegram.ext import ContextTypes
 
 
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    chat_id = update.effective_chat.id
-    if chat_id is None:
-        return
-    await context.bot.send_message(
-        chat_id=chat_id, text="Hellow I'm MoneFlow bot"
-    )
-
-
-if __name__ == "__main__":
+def get_token() -> str:
     load_dotenv()
     TOKEN = getenv("BOT_TOKEN")
     if TOKEN is None:
         raise RuntimeError
+    return TOKEN
 
+
+if __name__ == "__main__":
+    TOKEN = get_token()
     app = ApplicationBuilder().token(TOKEN).build()
 
-    start_hendler = CommandHandler("start", start)
-    app.add_handler(start_hendler)
+    command_handlers.regester(app)
 
     app.run_polling()
