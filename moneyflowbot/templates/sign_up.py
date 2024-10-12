@@ -1,8 +1,8 @@
-def tetx_send_key(key: str) -> str:
-    res = ""
-    res += "Привет, вот твой ключ: "
-    res += key + "."
-    res += "\n"
-    res += "..."
+def text_send_key(key: str) -> str:
+    text = ""
+    text += "Привет, вот твой ключ: "
+    text += key + "."
+    text += "\n"
+    text += "..."
 
-    return res
+    return text

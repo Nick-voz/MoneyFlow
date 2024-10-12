@@ -7,7 +7,7 @@ from sqlalchemy.orm import mapped_column
 class User(BaseModel):
     __tablename__ = "users"
     id: Mapped[int] = mapped_column(primary_key=True)
-    chat_id: Mapped[str] = mapped_column(unique=True)
+    chat_id: Mapped[int] = mapped_column(unique=True)
     global_user_id: Mapped[str]
 
 
