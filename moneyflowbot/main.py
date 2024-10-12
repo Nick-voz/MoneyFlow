@@ -8,7 +8,7 @@ from telegram.ext import ApplicationBuilder
 def get_token() -> str:
     TOKEN = getenv("BOT_TOKEN")
     if TOKEN is None:
-        raise RuntimeError
+        raise RuntimeError("can not load TOKEN from .env")
     return TOKEN
 
 
