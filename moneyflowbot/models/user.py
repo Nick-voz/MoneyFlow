@@ -1,10 +1,14 @@
-from base_model import BaseModel
+from models.base_model import BaseModel
+from models.base_model import engine
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 
 
 class User(BaseModel):
     __tablename__ = "users"
-    id: Mapped[str] = mapped_column(primary_key=True)
-    hiden_chat_id: Mapped[int]
+    id: Mapped[int] = mapped_column(primary_key=True)
+    chat_id: Mapped[str] = mapped_column(unique=True)
     global_user_id: Mapped[str]
+
+
+BaseModel.metadata.create_all(engine)
