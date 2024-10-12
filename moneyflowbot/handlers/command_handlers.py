@@ -2,10 +2,9 @@ from telegram import Update
 from telegram.ext import Application
 from telegram.ext import CommandHandler
 from telegram.ext import ContextTypes
+from templates.greeting import text_greeting
 from templates.sign_up import text_send_key
 from utils.authentication import genertate_global_user_id
-
-from moneyflowbot.templates.greeting import text_greeting
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
