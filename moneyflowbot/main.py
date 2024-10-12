@@ -15,7 +15,11 @@ def get_token() -> str:
 if __name__ == "__main__":
     load_dotenv()
     TOKEN = get_token()
-    app = ApplicationBuilder().token(TOKEN).build()
+
+    app = ApplicationBuilder()
+    app.concurrent_updates(False)
+    app.token(TOKEN)
+    app = app.build()
 
     command_handlers.regester(app)
 
