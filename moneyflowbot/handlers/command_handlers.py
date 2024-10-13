@@ -10,15 +10,15 @@ from utils.authentication import genertate_global_user_id
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.effective_chat.id
     text = text_start()
+    await context.bot.send_message(chat_id, text)
 
 
 async def sign_up(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.effective_chat.id
-
     global_user_id = genertate_global_user_id()
     text = text_send_key(global_user_id)
+    await context.bot.send_message(chat_id, text)
 
-    await context.bot.send_message(chat_id=chat_id, text=text)
 
 async def sign_in(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.effective_chat.id
