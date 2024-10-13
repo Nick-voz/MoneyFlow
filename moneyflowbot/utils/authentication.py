@@ -28,4 +28,12 @@ def get_global_user_id(chat_id: int) -> str:
     return user.global_user_id
 
 
+def delete_user(chat_id: int):
+    selector = Select(User).where(User.chat_id == chat_id)
+    with Session(engine) as session:
+        user: User = session.scalars(selector).one()
+        session.delete(user)
+        session.commit()
+
+
 def save_spend(): ...
