@@ -2,6 +2,7 @@ from os import getenv
 
 import handlers.command_handlers as command_handlers
 from dotenv import load_dotenv
+from handlers import conversation_handlers
 from telegram.ext import ApplicationBuilder
 
 
@@ -22,5 +23,6 @@ if __name__ == "__main__":
     app = app.build()
 
     command_handlers.regester(app)
+    conversation_handlers.regester(app)
 
     app.run_polling()
