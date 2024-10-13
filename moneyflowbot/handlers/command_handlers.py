@@ -2,15 +2,14 @@ from telegram import Update
 from telegram.ext import Application
 from telegram.ext import CommandHandler
 from telegram.ext import ContextTypes
-from templates.greeting import text_greeting
+from templates.greeting import text_start
 from templates.sign_up import text_send_key
 from utils.authentication import genertate_global_user_id
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.effective_chat.id
-    text = text_greeting()
-    await context.bot.send_message(chat_id=chat_id, text=text)
+    text = text_start()
 
 
 async def sign_up(update: Update, context: ContextTypes.DEFAULT_TYPE):
