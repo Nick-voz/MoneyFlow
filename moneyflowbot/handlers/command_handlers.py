@@ -50,14 +50,20 @@ async def log_out(update: Update, context: ContextTypes.DEFAULT_TYPE):
         text = "возникли неожиданный проблемы, мы это исправим"
     await context.bot.send_message(chat_id, text)
 
-start_hendler = CommandHandler("start", start)
-sign_up_handler = CommandHandler("signUp", sign_up)
+
+handler_start: CommandHandler = CommandHandler("start", start)
+handler_sign_up: CommandHandler = CommandHandler("signUp", sign_up)
+handler_sign_in: CommandHandler = CommandHandler("signIn", sign_in)
+handler_cancel: CommandHandler = CommandHandler("cancel", cancel)
+handler_log_out: CommandHandler = CommandHandler("logOut", log_out)
 
 
 def regester(app: Application) -> None:
     app.add_handlers(
         [
-            start_hendler,
-            sign_up_handler,
+            handler_start,
+            handler_sign_up,
+            handler_log_out,
+            handler_cancel,
         ]
     )
