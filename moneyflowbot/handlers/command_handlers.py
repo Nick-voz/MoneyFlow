@@ -20,6 +20,29 @@ async def sign_up(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await context.bot.send_message(chat_id=chat_id, text=text)
 
+async def sign_in(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    chat_id = update.effective_chat.id
+    text = text_ask_for_key()
+    await context.bot.send_message(chat_id, text)
+    return GettingKey.getting
+
+
+async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    chat_id = update.effective_chat.id
+    text = text_cancel_conversation()
+    await context.bot.send_message(chat_id, text)
+    return ConversationHandler.END
+
+
+async def log_out(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    chat_id = update.effective_chat.id
+    try:
+        delete_user(chat_id)
+        text = text_log_out()
+    except Exception:
+        print("trouble while deleting", f"{hash(chat_id)=}")
+        text = "возникли неожиданный проблемы, мы это исправим"
+    await context.bot.send_message(chat_id, text)
 
 start_hendler = CommandHandler("start", start)
 sign_up_handler = CommandHandler("signUp", sign_up)
