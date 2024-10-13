@@ -1,9 +1,15 @@
+from handlers.states import GettingKey
 from telegram import Update
 from telegram.ext import Application
 from telegram.ext import CommandHandler
 from telegram.ext import ContextTypes
+from telegram.ext import ConversationHandler
+from templates.cancel import text_cancel_conversation
 from templates.greeting import text_start
+from templates.log_out import text_log_out
+from templates.sign_in import text_ask_for_key
 from templates.sign_up import text_send_key
+from utils.authentication import delete_user
 from utils.authentication import genertate_global_user_id
 
 
