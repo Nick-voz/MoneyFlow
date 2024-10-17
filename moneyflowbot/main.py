@@ -1,16 +1,16 @@
 from os import getenv
 
-import handlers.command_handlers as command_handlers
 from dotenv import load_dotenv
+from handlers import command_handlers
 from handlers import conversation_handlers
 from telegram.ext import ApplicationBuilder
 
 
 def get_token() -> str:
-    TOKEN = getenv("BOT_TOKEN")
-    if TOKEN is None:
-        raise RuntimeError("can not load TOKEN from .env")
-    return TOKEN
+    token = getenv("BOT_TOKEN")
+    if token is None:
+        raise RuntimeError("can not load token from .env")
+    return token
 
 
 if __name__ == "__main__":

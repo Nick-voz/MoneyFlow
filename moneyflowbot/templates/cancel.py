@@ -1,4 +1,4 @@
-def text_cancel_conversation() -> str:
+def text_cancel_conversation():
     text = ""
     text += "Окюй закончим на этом."
     return text
