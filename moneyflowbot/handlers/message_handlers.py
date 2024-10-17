@@ -35,7 +35,7 @@ async def find_global_key(update: Update, context: ContextTypes.DEFAULT_TYPE):
         replay_text = text_success(key)
     except Exception:
         # TODO: rewrite it in templates
-        # TODO: there is to ways key eist and key exist and it is the same as current, also there is therd way: key exist and it related with ather id
+        # TODO: there is to ways: (1)key exist (2)and key exist and it is the same as current case, also there is therd way: key exist and it related with ather id, it should be refactor, all case should pracess correct
         replay_text = "У нас уже есть связанный с вами ключ"
 
     await context.bot.send_message(chat_id, text=replay_text)
