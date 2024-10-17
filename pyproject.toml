@@ -29,6 +29,7 @@ disable = [
     "redefined-outer-name",
     "import-error",
     "fixme",
+    "missing-module-docstring",
 ]
 
 
