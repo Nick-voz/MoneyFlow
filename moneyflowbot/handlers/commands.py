@@ -7,6 +7,7 @@ from telegram.ext import ConversationHandler
 from templates.cancel import text_cancel_conversation
 from templates.greeting import text_start
 from templates.log_out import text_log_out
+from templates.log_out import text_log_out_err
 from templates.sign_in import text_ask_for_key
 from templates.sign_up import text_send_key
 from utils.authentication import delete_user
@@ -46,8 +47,7 @@ async def log_out(update: Update, context: ContextTypes.DEFAULT_TYPE):
         delete_user(chat_id)
         text = text_log_out()
     except Exception:
-        print("trouble while deleting", f"{hash(chat_id)=}")
-        text = "возникли неожиданный проблемы, мы это исправим"
+        text = text_log_out_err()
     await context.bot.send_message(chat_id, text)
 
 
