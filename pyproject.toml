@@ -23,6 +23,14 @@ force_single_line = true
 sections = ['FUTURE', 'STDLIB', 'THIRDPARTY', 'FIRSTPARTY', 'LOCALFOLDER']
 profile = "black"
 
+known_local_folder = [
+    "moneyflowbot",
+    "handlers",
+    "models",
+    "templates",
+    "utils",
+]
+
 
 [tool.pylint]
 disable = [
