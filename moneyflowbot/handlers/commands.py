@@ -1,9 +1,10 @@
-from handlers.states import GettingKey
 from telegram import Update
 from telegram.ext import Application
 from telegram.ext import CommandHandler
 from telegram.ext import ContextTypes
 from telegram.ext import ConversationHandler
+
+from handlers.states import GettingKey
 from templates.cancel import text_cancel_conversation
 from templates.greeting import text_start
 from templates.log_out import text_log_out

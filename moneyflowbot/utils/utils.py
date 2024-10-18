@@ -1,5 +1,9 @@
 from os import getenv
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 # TODO: the file name should be other, but while autentification.py  in this
 # folder, it is not refactored, so it can be there with this name

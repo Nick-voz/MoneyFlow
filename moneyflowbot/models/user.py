@@ -1,7 +1,8 @@
-from models.base_model import BaseModel
-from models.base_model import engine
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
+
+from models.base_model import BaseModel
+from models.base_model import engine
 
 
 class User(BaseModel):
